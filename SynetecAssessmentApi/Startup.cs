@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using SynetecAssessmentApi.Persistence;
+using SynetecAssessmentApi.Application.Extensions;
+using SynetecAssessmentApi.Extensions;
+using SynetecAssessmentApi.Filters;
 
 namespace SynetecAssessmentApi
 {
@@ -21,14 +21,15 @@ namespace SynetecAssessmentApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDatabase();
+            services.AddApplicationLayer();
+            services.AddApplicationServices();
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddControllersWithViews(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SynetecAssessmentApi", Version = "v1" });
+                options.Filters.Add(new ApiExceptionFilterAttribute());
             });
-
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseInMemoryDatabase(databaseName: "HrDb"));
+            services.RegisterSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

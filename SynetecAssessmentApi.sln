@@ -1,13 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi", "SynetecAssessmentApi\SynetecAssessmentApi.csproj", "{5BCB6360-6A89-4338-9863-7455B8480B20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynetecAssessmentApi", "SynetecAssessmentApi\SynetecAssessmentApi.csproj", "{5BCB6360-6A89-4338-9863-7455B8480B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi.Domain", "SynetecAssessmentApi.Domain\SynetecAssessmentApi.Domain.csproj", "{7B58C9C7-0C36-49AE-B472-ADF9C00B61D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynetecAssessmentApi.Domain", "SynetecAssessmentApi.Domain\SynetecAssessmentApi.Domain.csproj", "{7B58C9C7-0C36-49AE-B472-ADF9C00B61D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi.Persistence", "SynetecAssessment.Persistence\SynetecAssessmentApi.Persistence.csproj", "{72F75F99-9031-4DD6-B646-4926BC527038}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynetecAssessmentApi.Persistence", "SynetecAssessment.Persistence\SynetecAssessmentApi.Persistence.csproj", "{72F75F99-9031-4DD6-B646-4926BC527038}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestService.Tests", "TestService.Tests\TestService.Tests.csproj", "{96F35D8A-82B6-4961-9F46-E55737C22340}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynetecAssessmentApi.Application", "SynetecAssessmentApi.Application\SynetecAssessmentApi.Application.csproj", "{9E32A955-5711-4F0B-9B56-CD1CA184E827}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynetecAssessmentApi.Infrastructure", "SynetecAssessmentApi.Infrastructure\SynetecAssessmentApi.Infrastructure.csproj", "{BC37C642-9EE7-4B6C-B173-6C3F433FF7FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4FAEC840-8491-48EF-BE3F-8395D44B1E34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessment.Api.UnitTests", "SynetecAssessment.Api.UnitTests\SynetecAssessment.Api.UnitTests.csproj", "{52B2B62E-7CEF-4CF8-8B73-BF1B5D47ACE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +37,29 @@ Global
 		{72F75F99-9031-4DD6-B646-4926BC527038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F75F99-9031-4DD6-B646-4926BC527038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F75F99-9031-4DD6-B646-4926BC527038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F35D8A-82B6-4961-9F46-E55737C22340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F35D8A-82B6-4961-9F46-E55737C22340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F35D8A-82B6-4961-9F46-E55737C22340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F35D8A-82B6-4961-9F46-E55737C22340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E32A955-5711-4F0B-9B56-CD1CA184E827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E32A955-5711-4F0B-9B56-CD1CA184E827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E32A955-5711-4F0B-9B56-CD1CA184E827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E32A955-5711-4F0B-9B56-CD1CA184E827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC37C642-9EE7-4B6C-B173-6C3F433FF7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC37C642-9EE7-4B6C-B173-6C3F433FF7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC37C642-9EE7-4B6C-B173-6C3F433FF7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC37C642-9EE7-4B6C-B173-6C3F433FF7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B2B62E-7CEF-4CF8-8B73-BF1B5D47ACE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B2B62E-7CEF-4CF8-8B73-BF1B5D47ACE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B2B62E-7CEF-4CF8-8B73-BF1B5D47ACE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B2B62E-7CEF-4CF8-8B73-BF1B5D47ACE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96F35D8A-82B6-4961-9F46-E55737C22340} = {4FAEC840-8491-48EF-BE3F-8395D44B1E34}
+		{52B2B62E-7CEF-4CF8-8B73-BF1B5D47ACE2} = {4FAEC840-8491-48EF-BE3F-8395D44B1E34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34BFE941-C9D7-4CA5-AD9D-19A169C02E4D}

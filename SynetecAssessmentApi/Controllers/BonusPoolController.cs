@@ -1,29 +1,37 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using SynetecAssessmentApi.Application.Features.BonusPool.Command;
+using SynetecAssessmentApi.Application.Features.BonusPool.Queries;
+using SynetecAssessmentApi.Application.Interfaces.Services.BonusPool;
 using SynetecAssessmentApi.Dtos;
-using SynetecAssessmentApi.Services;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SynetecAssessmentApi.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class BonusPoolController : Controller
     {
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        private readonly IMediator _mediatorInstance;
+        public BonusPoolController(IMediator mediatorInstance)
         {
-            var bonusPoolService = new BonusPoolService();
-
-            return Ok(await bonusPoolService.GetEmployeesAsync());
+            _mediatorInstance = mediatorInstance;
         }
 
-        [HttpPost()]
-        public async Task<IActionResult> CalculateBonus([FromBody] CalculateBonusDto request)
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<EmployeeDto>), 200)]
+        [ProducesResponseType(typeof(GetEmployeesQuery), 418)]
+        public async Task<IActionResult> GetAll()
         {
-            var bonusPoolService = new BonusPoolService();
-
-            return Ok(await bonusPoolService.CalculateAsync(
-                request.TotalBonusPoolAmount,
-                request.SelectedEmployeeId));
+            return Ok((await _mediatorInstance.Send(new GetEmployeesQuery())));
+        }
+        [HttpPost()]
+        [ProducesResponseType(typeof(BonusPoolCalculatorResultDto), 200)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), 400)]
+        public async Task<IActionResult> CalculateBonus([FromBody] CalculateBonusCommand request)
+        {
+            return Ok(await _mediatorInstance.Send(request));
         }
     }
 }
